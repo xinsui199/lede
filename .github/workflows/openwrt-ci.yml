@@ -171,7 +171,7 @@ jobs:
           find dl -size -1024c -exec rm -f {} \;
       - name: Compile firmware
         run: |
-          make -j$(nproc) || make -j4 V=s
+          make -j$(nproc) || make -j1 V=s
           echo "======================="
           echo "Space usage:"
           echo "======================="
@@ -188,5 +188,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
-          name: OpenWrt firmware
+          name: OpenWrt
           path: ./artifact/
